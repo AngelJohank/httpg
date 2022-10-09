@@ -14,7 +14,6 @@ func FetchAndWriteImage(url string, ch chan string) {
 		return
 	}
 
-	// Check if url is pointing to an image
 	if !URLisImage(res) {
 		ch <- "URL is not an image"
 		return
@@ -29,7 +28,7 @@ func FetchAndWriteImage(url string, ch chan string) {
 		return
 	}
 
-	// Write image to disk
+	// Write image
 	imageName := GenerateImageName(res, url)
 	WriteImage(imageName, imageData)
 

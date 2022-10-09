@@ -13,6 +13,7 @@ func main() {
 		go FetchAndWriteImage(url, ch)
 	}
 
+	// Get all status messages
 	for range urls {
 		fmt.Println(<-ch)
 	}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 )
@@ -32,5 +33,5 @@ func FetchAndWriteImage(url string, ch chan string) {
 	imageName := GenerateImageName(res, url)
 	WriteImage(imageName, imageData)
 
-	ch <- "FINISHED: " + url
+	ch <- fmt.Sprintf("Finished: %q", url)
 }

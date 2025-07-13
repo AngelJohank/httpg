@@ -1,3 +1,3 @@
-module httpg
+module angeljohank/httpg
 
-go 1.19
+go 1.24.5

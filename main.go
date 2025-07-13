@@ -48,6 +48,7 @@ func downloadImg(url string, result chan string) {
 	wd, err := os.Getwd()
 	if err != nil {
 		result <- "could not get current working directory"
+		os.Exit(1)
 	}
 
 	err = os.WriteFile(filepath.Join(wd, filename), resBody, 0644)

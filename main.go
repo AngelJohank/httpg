@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -44,7 +45,12 @@ func downloadImg(url string, result chan string) {
 	urlSegments := strings.Split(url, "/")
 	filename := urlSegments[len(urlSegments)-1]
 
-	err = os.WriteFile(filename, resBody, 0644)
+	wd, err := os.Getwd()
+	if err != nil {
+		result <- "could not get current working directory"
+	}
+
+	err = os.WriteFile(filepath.Join(wd, filename), resBody, 0644)
 	if err != nil {
 		result <- err.Error()
 	}

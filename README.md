@@ -1,7 +1,9 @@
 # httpg
+
 A simple CLI image downloader written in go
 
 Example
+
 ```
-$ httpg http.cat/101 http.cat/404
+$ httpg https://images.pexels.com/photos/18960521/pexels-photo-18960521.jpeg
 ```
